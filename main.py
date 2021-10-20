@@ -1,16 +1,28 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from linkbudget import LinkBudget
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+def printAll(case):
+    print(f"P={case.P}")
+    print(f"L_l={case.L_l}")
+    print(f"G_t={case.G_t}")
+    print(f"L_a={case.L_a}")
+    print(f"G_r={case.G_r}")
+    print(f"L_s={case.L_s}")
+    print(f"L_pr={case.L_pr}")
+    print(f"L_r={case.L_r}")
+    print(f"1/R={case.R_inv}")
+    print(f"1/T_s={case.T_s_inv}")
 
 
-# Press the green button in the gutter to run the script.
+# samplecase = LinkBudget(True, 2, 0, 0.8, 0.8, 2.5, 1, 0.5, 10, 570, 0, 0.25, 0,
+#                         6371e3, 5.972e24, 149597871e3, 0, 0, 0, 50, 2, 1e-6)
+
+case1down = LinkBudget(False, 150, 400, 0.8, 0.7, 2.2, 221 / 240, 1, 15, 820, 0, 0.12, 1e8,
+                       6371e3, 5972e21, 149597871e3, 45, 0.01, 32, 100, 0.5, 1e-6)
+
+case = case1down
+
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    print(case.SNR)
+    printAll(case)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
