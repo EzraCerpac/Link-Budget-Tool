@@ -79,4 +79,5 @@ class LinkBudget:
         # Budget
         self.SNR = self.P + self.L_l + self.G_t + self.L_a + self.G_r + self.L_s + self.L_pr \
                    + self.L_r + 228.6 + self.R_inv + self.T_s_inv
-        # self.BER =
+        self.SNR_req = 10.5  # dB
+        self.margin = self.SNR - self.SNR_req
