@@ -53,10 +53,8 @@ class LinkBudget:
 
         # Distance spacecraft-ground station (worst-case, zero elevation)
         if abs(d_S - d_E) > 5:
-            print("not around Earth")
             self.S = sqrt(d_E ** 2 + d_S ** 2 - 2 * d_E * d_S * cos(theta_ES))
         else:
-            print("around Earth")
             self.S = sqrt((r_plan + self.h) ** 2 - r_plan ** 2)
 
         # Signal wavelength and space loss
