@@ -20,6 +20,7 @@ class LinkBudget:
             e_t_t = e_t_sc
             e_t_r = 0
             P = P_sc
+            self.T_s = 135  # K
         else:
             # Up specific
             self.f = f_d * turnaround_ratio  # GHz
@@ -28,12 +29,12 @@ class LinkBudget:
             e_t_t = 0
             e_t_r = e_t_sc
             P = P_gs
+            self.T_s = 614  # K
 
         # Transmitter Power
         self.P = 10 * log10(P)  # dBW
 
         # System Noise Temperature
-        self.T_s = 135  # K
         self.T_s_inv = 10 * log10(1 / self.T_s)  # dBK^-1
 
         # Transmission Path Loss
@@ -41,7 +42,7 @@ class LinkBudget:
 
         # Data Rate
         if down:
-            S_W = 2 * tan(swath_width_angle / 2) * self.h  # m
+            S_W = abs(2 * tan(swath_width_angle / 2) * self.h)  # m
             P_S = 2 * tan(pixel_size / 60 / 2) * self.h  # m
             V = sqrt(6.673e-11 * M_plan / (r_plan + self.h))  # m/s
             self.R_G = B_p * S_W * V / P_S ** 2  # b/s
